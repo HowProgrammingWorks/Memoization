@@ -9,7 +9,7 @@ let memoizeAsync = (lib, fnName) => {
   let fn = lib[fnName];
   let cache = {};
   console.log('override ' + fnName);
-  lib[fnName] = function(...args) {
+  lib[fnName] = (...args) => {
     console.dir({call: fnName, args, cache });
     let cb = args.pop();
     let record = cache[args[0]];
@@ -30,9 +30,9 @@ let memoizeAsync = (lib, fnName) => {
 
 memoizeAsync(api.fs, 'readFile');
 
-api.fs.readFile('memoizeAsync.js', (err, data) => {
+api.fs.readFile('4-async.js', (err, data) => {
   console.log('data length: ' + data.length);
-  api.fs.readFile('memoizeAsync.js', (err, data) => {
+  api.fs.readFile('4-async.js', (err, data) => {
     console.log('data length: ' + data.length);
   });
 });
