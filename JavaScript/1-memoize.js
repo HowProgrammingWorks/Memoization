@@ -1,17 +1,17 @@
 'use strict';
 
 function memoize(fn) {
-  let cache = {};
+  const cache = {};
   return (...args) => {
-    let key = args + '';
-    let val = cache[key];
+    const key = args + '';
+    const val = cache[key];
     if (val) return val;
     else {
-      let res = fn(...args);
+      const res = fn(...args);
       cache[key] = res;
       return res;
     }
-  }
+  };
 }
 
 function sumSeq(a, b) {
@@ -21,7 +21,7 @@ function sumSeq(a, b) {
   return r;
 }
 
-let mSumSeq = memoize(sumSeq);
+const mSumSeq = memoize(sumSeq);
 
 console.log('First call mSumSeq(2, 5)');
 console.log('Value: ' + mSumSeq(2, 5));

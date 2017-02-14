@@ -3,22 +3,20 @@
 const LOOP = 10000;
 
 function memoize(fn) {
-  let cache = {};
+  const cache = {};
   return (...args) => {
-    let key = args + '';
-    let val = cache[key];
+    const key = args + '';
+    const val = cache[key];
     if (val) return val;
     else {
-      let res = fn(...args);
+      const res = fn(...args);
       cache[key] = res;
       return res;
     }
-  }
+  };
 }
 
-function fib(n) {
-  return (n <= 2) ? 1 : fib(n-1) + fib(n-2);
-}
+let fib = n => (n <= 2) ? 1 : fib(n - 1) + fib(n - 2);
 
 function speedTest(name, fn, args, count) {
   let start = new Date().getTime();

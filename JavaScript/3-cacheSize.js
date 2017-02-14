@@ -1,12 +1,12 @@
 'use strict';
 
 function memoize(fn, length) {
-  let cache = {};
+  const cache = {};
   let counter = 0;
   return (...args) => {
-    let key = args + '';
-    let val = cache[key];
-    let res = val ? val : fn(...args);
+    const key = args + '';
+    const val = cache[key];
+    const res = val ? val : fn(...args);
     if (!val) {
       if (++counter > length) {
         delete cache[Object.keys(cache)[0]];
@@ -14,7 +14,7 @@ function memoize(fn, length) {
       cache[key] = res;
     }
     return res;
-  }
+  };
 }
 
 function max(a, b) {
@@ -22,7 +22,7 @@ function max(a, b) {
   return a > b ? a : b;
 }
 
-let mMax = memoize(max, 3);
+const mMax = memoize(max, 3);
 
 console.log('mMax(10, 8)');
 mMax(10, 8);

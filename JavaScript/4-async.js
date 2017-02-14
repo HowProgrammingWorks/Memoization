@@ -5,14 +5,14 @@ api.fs = require('fs');
 
 // args[0] - key
 // args[args.length-1] - callback
-let memoizeAsync = (lib, fnName) => {
-  let fn = lib[fnName];
-  let cache = {};
+const memoizeAsync = (lib, fnName) => {
+  const fn = lib[fnName];
+  const cache = {};
   console.log('override ' + fnName);
   lib[fnName] = (...args) => {
-    console.dir({call: fnName, args, cache });
-    let cb = args.pop();
-    let record = cache[args[0]];
+    console.dir({ call: fnName, args, cache });
+    const cb = args.pop();
+    const record = cache[args[0]];
     console.log('key: ' + args[0]);
     console.log('cached: ' + record);
     if (record) {
@@ -22,7 +22,7 @@ let memoizeAsync = (lib, fnName) => {
       console.log('from file');
       console.log('Save key: ' + args[0]);
       cache[args[0]] = { err, data };
-      console.dir({cache});
+      console.dir({ cache });
       cb(err, data);
     });
   };
