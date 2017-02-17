@@ -4,7 +4,8 @@ env:
   node: true
 extends: 'eslint:recommended'
 globals:
-  api: true
+  api: false
+  Map: false
 rules:
   indent:
     - error

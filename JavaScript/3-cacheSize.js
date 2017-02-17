@@ -1,18 +1,18 @@
 'use strict';
 
 function memoize(fn, length) {
-  const cache = {};
-  let counter = 0;
+  const cache = new Map();
   return (...args) => {
     const key = args + '';
-    const val = cache[key];
-    const res = val ? val : fn(...args);
-    if (!val) {
-      if (++counter > length) {
-        delete cache[Object.keys(cache)[0]];
-      }
-      cache[key] = res;
+    if (cache.has(key)) {
+      return cache.get(key);
     }
+    const res = fn(...args);
+    if (cache.size >= length) {
+      const firstKey = cache.keys().next().value;
+      cache.delete(firstKey);
+    }
+    cache.set(key, res);
     return res;
   };
 }
@@ -34,5 +34,15 @@ console.log('mMax(15, 2)');
 mMax(15, 2);
 console.log('mMax(1, 15)');
 mMax(1, 15);
-console.log('mMax(10, 8)');
-mMax(10, 8);
+console.log('mMax(0, 0)');
+mMax(0, 0);
+console.log('mMax(0, 0)');
+mMax(0, 0);
+console.log('mMax(false, false)');
+mMax(false, false);
+console.log('mMax(false, false)');
+mMax(false, false);
+console.log('mMax(undefined, undefined)');
+mMax(undefined, undefined);
+console.log('mMax(undefined, undefined)');
+mMax(undefined, undefined);

@@ -21,11 +21,11 @@ let fib = n => (n <= 2) ? 1 : fib(n - 1) + fib(n - 2);
 function speedTest(name, fn, args, count) {
   let start = new Date().getTime();
   for (let i = 0; i < count; i++) {
-    fn.apply(null, args);
+    fn(...args);
   }
   let end = new Date().getTime();
   let time = end - start;
-  console.log(name + ' * ' + count + ' : ' + time);
+  console.log(`${name} * ${count} : ${time}`);
 }
 
 speedTest('fib(20)', fib, [20], LOOP);

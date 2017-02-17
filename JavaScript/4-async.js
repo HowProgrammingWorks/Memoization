@@ -12,16 +12,18 @@ const memoizeAsync = (lib, fnName) => {
   lib[fnName] = (...args) => {
     console.dir({ call: fnName, args, cache });
     const cb = args.pop();
-    const record = cache[args[0]];
-    console.log('key: ' + args[0]);
+    const key = args[0];
+    const record = cache[key];
+    console.log('key: ' + key);
     console.log('cached: ' + record);
     if (record) {
       console.log('from cache');
-      cb(record.err, record.data);
-    } else fn(...args, (err, data) => {
+      return cb(record.err, record.data);
+    }
+    fn(...args, (err, data) => {
       console.log('from file');
-      console.log('Save key: ' + args[0]);
-      cache[args[0]] = { err, data };
+      console.log('Save key: ' + key);
+      cache[key] = { err, data };
       console.dir({ cache });
       cb(err, data);
     });
