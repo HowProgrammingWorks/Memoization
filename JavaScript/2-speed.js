@@ -21,12 +21,12 @@ let fib = n => (
 );
 
 function speedTest(name, fn, args, count) {
-  let start = new Date().getTime();
+  const start = new Date().getTime();
   for (let i = 0; i < count; i++) {
     fn(...args);
   }
-  let end = new Date().getTime();
-  let time = end - start;
+  const end = new Date().getTime();
+  const time = end - start;
   console.log(`${name} * ${count} : ${time}`);
 }
 
