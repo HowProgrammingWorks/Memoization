@@ -16,7 +16,9 @@ function memoize(fn) {
   };
 }
 
-let fib = n => (n <= 2) ? 1 : fib(n - 1) + fib(n - 2);
+let fib = n => (
+  (n <= 2) ? 1 : fib(n - 1) + fib(n - 2)
+);
 
 function speedTest(name, fn, args, count) {
   let start = new Date().getTime();
