@@ -1,7 +1,6 @@
 'use strict';
 
-global.api = {};
-api.fs = require('fs');
+const fs = require('fs');
 
 // args[0] - key
 // args[args.length-1] - callback
@@ -30,11 +29,11 @@ const memoizeAsync = (lib, fnName) => {
   };
 };
 
-memoizeAsync(api.fs, 'readFile');
+memoizeAsync(fs, 'readFile');
 
-api.fs.readFile('4-async.js', (err, data) => {
+fs.readFile('4-async.js', (err, data) => {
   console.log('data length: ' + data.length);
-  api.fs.readFile('4-async.js', (err, data) => {
+  fs.readFile('4-async.js', (err, data) => {
     console.log('data length: ' + data.length);
   });
 });
