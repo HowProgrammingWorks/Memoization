@@ -4,9 +4,7 @@ function memoize(fn, length) {
   const cache = new Map();
   return (...args) => {
     const key = args + '';
-    if (cache.has(key)) {
-      return cache.get(key);
-    }
+    if (cache.has(key)) return cache.get(key);
     const res = fn(...args);
     if (cache.size >= length) {
       const firstKey = cache.keys().next().value;

@@ -6,11 +6,9 @@ function memoize(fn) {
     const key = args + '';
     const val = cache[key];
     if (val) return val;
-    else {
-      const res = fn(...args);
-      cache[key] = res;
-      return res;
-    }
+    const res = fn(...args);
+    cache[key] = res;
+    return res;
   };
 }
 

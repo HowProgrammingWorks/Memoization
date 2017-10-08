@@ -1,6 +1,6 @@
 'use strict';
 
-const LOOP = 10000;
+const LOOP_COUNT = 10000;
 
 function memoize(fn) {
   const cache = {};
@@ -8,11 +8,9 @@ function memoize(fn) {
     const key = args + '';
     const val = cache[key];
     if (val) return val;
-    else {
-      const res = fn(...args);
-      cache[key] = res;
-      return res;
-    }
+    const res = fn(...args);
+    cache[key] = res;
+    return res;
   };
 }
 
@@ -30,6 +28,7 @@ function speedTest(name, fn, args, count) {
   console.log(`${name} * ${count} : ${time}`);
 }
 
-speedTest('fib(20)', fib, [20], LOOP);
+speedTest('fib(20)', fib, [20], LOOP_COUNT);
+
 fib = memoize(fib);
-speedTest('memoized fib(20)', fib, [20], LOOP);
+speedTest('memoized fib(20)', fib, [20], LOOP_COUNT);
