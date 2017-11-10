@@ -17,7 +17,8 @@ const memoizeAsync = (lib, fnName) => {
     console.log('cached: ' + record);
     if (record) {
       console.log('from cache');
-      return cb(record.err, record.data);
+      cb(record.err, record.data);
+      return;
     }
     fn(...args, (err, data) => {
       console.log('from file');
