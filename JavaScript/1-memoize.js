@@ -1,23 +1,25 @@
 'use strict';
 
-function memoize(fn) {
+const memoize = fn => {
   const cache = {};
   return (...args) => {
-    const key = args + '';
+    const key = args + ',';
     const val = cache[key];
     if (val) return val;
     const res = fn(...args);
     cache[key] = res;
     return res;
   };
-}
+};
 
-function sumSeq(a, b) {
+// Usage
+
+const sumSeq = (a, b) => {
   console.log('Calculate sum');
   let r = 0;
   for (let i = a; i < b; i++) r += i;
   return r;
-}
+};
 
 const mSumSeq = memoize(sumSeq);
 

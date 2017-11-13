@@ -1,6 +1,6 @@
 'use strict';
 
-function memoize(fn, length) {
+const memoize = (fn, length) => {
   const cache = new Map();
   return (...args) => {
     const key = args + '';
@@ -13,12 +13,14 @@ function memoize(fn, length) {
     cache.set(key, res);
     return res;
   };
-}
+};
 
-function max(a, b) {
+// Usage
+
+const max = (a, b) => {
   console.log('Calculate: ' + a + '+' + b);
   return a > b ? a : b;
-}
+};
 
 const mMax = memoize(max, 3);
 

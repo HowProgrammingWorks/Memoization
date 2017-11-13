@@ -30,6 +30,8 @@ const memoizeAsync = (lib, fnName) => {
   };
 };
 
+// Usage
+
 memoizeAsync(fs, 'readFile');
 
 fs.readFile('4-async.js', (err, data) => {
