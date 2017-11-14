@@ -5,6 +5,8 @@ Memoization of synchronous and asynchronous functions
 Tasks:
 - see examples
 - implement time expiration cash
+- implement memoize with max records count and removing least used
+- implement memoize with max total stored data size
 - implement universal memoize compatible with both sync and async function
 - implement functional object with following properties methods and events:
   - `memoized.clear()` - clear cache
