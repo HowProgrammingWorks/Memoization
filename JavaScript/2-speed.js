@@ -1,9 +1,13 @@
 'use strict';
 
+const generateKey = args => (
+  args.map(x => x.toString() + ':' + typeof(x)).join('|')
+);
+
 const memoize = fn => {
   const cache = {};
   return (...args) => {
-    const key = args + ',';
+    const key = generateKey(args);
     const val = cache[key];
     if (val) return val;
     const res = fn(...args);
@@ -17,13 +21,14 @@ const memoize = fn => {
 const LOOP_COUNT = 10000;
 
 const speedTest = (name, fn, args, count) => {
+  const tmp = [];
   const start = new Date().getTime();
   for (let i = 0; i < count; i++) {
-    fn(...args);
+    tmp.push(fn(...args));
   }
   const end = new Date().getTime();
   const time = end - start;
-  console.log(`${name} * ${count} : ${time}`);
+  console.log(`${name} * ${tmp.length} : ${time}`);
 };
 
 // Usage

@@ -1,9 +1,13 @@
 'use strict';
 
+const generateKey = args => (
+  args.map(x => x + ':' + typeof(x)).join('|')
+);
+
 const memoize = (fn, length) => {
   const cache = new Map();
   return (...args) => {
-    const key = args + '';
+    const key = generateKey(args);
     if (cache.has(key)) return cache.get(key);
     const res = fn(...args);
     if (cache.size >= length) {
