@@ -8,8 +8,7 @@ const util = require('util');
 
 const metasync = {};
 
-function Memoized() {
-}
+function Memoized() {}
 
 util.inherits(Memoized, Function);
 

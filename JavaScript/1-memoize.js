@@ -29,7 +29,9 @@ const mSumSeq = memoize(sumSeq);
 
 console.log('First call mSumSeq(2, 5)');
 console.log('Value: ' + mSumSeq(2, 5));
+
 console.log('Second call mSumSeq(2, 5)');
 console.log('From cache: ' + mSumSeq(2, 5));
+
 console.log('Call mSumSeq(2, 6)');
 console.log('Calculated: ' + mSumSeq(2, 6));
