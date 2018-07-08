@@ -49,9 +49,9 @@ Memoized.prototype.clear = function() {
 
 fs.readFile = metasync.memoize(fs.readFile);
 
-fs.readFile('6-metasync.js', (err, data) => {
+fs.readFile('6-metasync.js', 'utf8', (err, data) => {
   console.log('data length: ' + data.length);
-  fs.readFile('6-metasync.js', (err, data) => {
+  fs.readFile('6-metasync.js', 'utf8', (err, data) => {
     console.log('data length: ' + data.length);
   });
 });

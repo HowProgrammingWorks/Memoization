@@ -34,9 +34,9 @@ const memoizeAsync = (lib, fnName) => {
 
 memoizeAsync(fs, 'readFile');
 
-fs.readFile('4-async.js', (err, data) => {
+fs.readFile('4-async.js', 'utf8', (err, data) => {
   console.log('data length: ' + data.length);
-  fs.readFile('4-async.js', (err, data) => {
+  fs.readFile('4-async.js', 'utf8', (err, data) => {
     console.log('data length: ' + data.length);
   });
 });
