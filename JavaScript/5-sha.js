@@ -3,7 +3,7 @@
 const crypto = require('crypto');
 
 const generateKey = args => {
-  const key = args.map(x => x.toString() + ':' + typeof(x)).join('|');
+  const key = args.map(x => x.toString() + ':' + typeof x).join('|');
   return crypto.createHash('sha256').update(key).digest('hex');
 };
 

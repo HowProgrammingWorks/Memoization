@@ -1,7 +1,7 @@
 'use strict';
 
 const generateKey = args => (
-  args.map(x => x.toString() + ':' + typeof(x)).join('|')
+  args.map(x => x.toString() + ':' + typeof x).join('|')
 );
 
 const memoize = fn => {
