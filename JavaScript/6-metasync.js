@@ -6,13 +6,11 @@ const util = require('util');
 // Production implementation from Metasync library
 // See: https://github.com/metarhia/metasync
 
-const metasync = {};
-
 function Memoized() {}
 
 util.inherits(Memoized, Function);
 
-metasync.memoize = (fn) => {
+const memoize = fn => {
   const cache = new Map();
 
   const memoized = function(...args) {
@@ -47,7 +45,7 @@ Memoized.prototype.clear = function() {
 
 // Usage
 
-fs.readFile = metasync.memoize(fs.readFile);
+fs.readFile = memoize(fs.readFile);
 
 fs.readFile('6-metasync.js', 'utf8', (err, data) => {
   console.log('data length: ' + data.length);
