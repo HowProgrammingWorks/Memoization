@@ -1,8 +1,7 @@
 'use strict';
 
-const generateKey = args => (
-  args.map(x => x.toString() + ':' + typeof x).join('|')
-);
+const argKey = x => x.toString() + ':' + typeof x;
+const generateKey = args => args.map(argKey).join('|');
 
 const memoize = fn => {
   const cache = {};
@@ -33,11 +32,9 @@ const speedTest = (name, fn, args, count) => {
 
 // Usage
 
-let fib = n => (
-  (n <= 2) ? 1 : fib(n - 1) + fib(n - 2)
-);
+const fib = n => (n <= 2 ? 1 : fib(n - 1) + fib(n - 2));
 
 speedTest('fib(20)', fib, [20], LOOP_COUNT);
 
-fib = memoize(fib);
-speedTest('memoized fib(20)', fib, [20], LOOP_COUNT);
+const mFib = memoize(fib);
+speedTest('memoized fib(20)', mFib, [20], LOOP_COUNT);
