@@ -13,7 +13,7 @@ const memoize = (fn, length) => {
     const res = fn(...args);
     if (cache.size >= length) {
       const firstKey = cache.keys().next().value;
-      console.log(`Delete key: ${firstKey}`);
+      console.log('Delete key:', firstKey);
       cache.delete(firstKey);
     }
     cache.set(key, res);
