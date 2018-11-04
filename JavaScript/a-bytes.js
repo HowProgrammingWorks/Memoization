@@ -76,11 +76,5 @@ console.log(`sumB(4, 2) = ${sumB(4, 2)}`);
 console.log(`sumB(2, 3) = ${sumB(2, 3)}`);
 console.log(`sumB(1, 3) = ${sumB(1, 3)}`);
 console.log(`sumB(4, 3) = ${sumB(4, 3)}`);
-console.log(`sumB(9, 3) = ${sumB(9, 3)}`);
+console.log(`sumB(9, 3) = ${sumB(1, 3)}`);
 console.log(`sumB(8, 3) = ${sumB(8, 3)}`);
-
-const sumK = memoizeBytes(sum, '0.25K');
-const arr = [];
-for (let i = 0; i < 100; i++) {;
-  arr[i] = sumK(i, i-1);
-}
