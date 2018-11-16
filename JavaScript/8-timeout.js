@@ -2,7 +2,7 @@
 
 const memoize = (fn, msec = 100) => {
   const cache = {};
-  let timer;
+  let timer = null;
   const hasKey = (key) => Object.keys(cache).includes(key);
   const generateKey = (args) => {
     let key = '';
