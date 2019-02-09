@@ -1,12 +1,12 @@
 {
   "name": "metasync-memoize-example",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Example of async memoization from Metasync",
   "main": "7-metasync.js",
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "metasync": "^0.3.29"
+    "metasync": "^0.3.31"
   }
 }
