@@ -4,7 +4,7 @@ const argKey = x => x.toString() + ':' + typeof x;
 const generateKey = args => args.map(argKey).join('|');
 
 const memoize = fn => {
-  const cache = {};
+  const cache = Object.create(null);
   return (...args) => {
     const key = generateKey(args);
     const val = cache[key];
@@ -33,8 +33,7 @@ const speedTest = (name, fn, args, count) => {
 // Usage
 
 const fib = n => (n <= 2 ? 1 : fib(n - 1) + fib(n - 2));
+const mFib = memoize(fib);
 
 speedTest('fib(20)', fib, [20], LOOP_COUNT);
-
-const mFib = memoize(fib);
 speedTest('memoized fib(20)', mFib, [20], LOOP_COUNT);

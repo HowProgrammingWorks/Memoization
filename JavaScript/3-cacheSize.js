@@ -24,7 +24,6 @@ const memoize = (fn, length) => {
 // Usage
 
 const max = (a, b) => (a > b ? a : b);
-
 const mMax = memoize(max, 3);
 
 mMax(10, 8);

@@ -4,7 +4,7 @@ const argKey = x => x.toString() + ':' + typeof x;
 const generateKey = args => args.map(argKey).join('|');
 
 const memoize = fn => {
-  const cache = {};
+  const cache = Object.create(null);
   return (...args) => {
     const key = generateKey(args);
     const val = cache[key];
