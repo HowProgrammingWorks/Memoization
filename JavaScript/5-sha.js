@@ -1,6 +1,6 @@
 'use strict';
 
-const crypto = require('crypto');
+const crypto = require('node:crypto');
 
 const argKey = (x) => x.toString() + ':' + typeof x;
 

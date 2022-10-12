@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs');
+const fs = require('node:fs');
 
 // Production implementation from Metasync library
 // See: https://github.com/metarhia/metasync
