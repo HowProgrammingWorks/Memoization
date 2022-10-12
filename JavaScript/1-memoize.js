@@ -1,9 +1,9 @@
 'use strict';
 
-const argKey = x => x.toString() + ':' + typeof x;
-const generateKey = args => args.map(argKey).join('|');
+const argKey = (x) => x.toString() + ':' + typeof x;
+const generateKey = (args) => args.map(argKey).join('|');
 
-const memoize = fn => {
+const memoize = (fn) => {
   const cache = Object.create(null);
   return (...args) => {
     const key = generateKey(args);

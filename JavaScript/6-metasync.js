@@ -7,7 +7,7 @@ const fs = require('fs');
 
 function Memoized() {}
 
-const memoize = fn => {
+const memoize = (fn) => {
   const cache = new Map();
 
   const memoized = function(...args) {
