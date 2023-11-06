@@ -7,6 +7,6 @@
   "author": "Timur Shemsedinov <timur.shemsedinov@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "metasync": "^0.3.31"
+    "metasync": "^0.3.32"
   }
 }
