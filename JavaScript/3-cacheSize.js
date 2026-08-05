@@ -1,6 +1,6 @@
 'use strict';
 
-const argKey = (x) => x.toString() + ':' + typeof x;
+const argKey = (x) => `${x.toString()}:${typeof x}`;
 const generateKey = (args) => args.map(argKey).join('|');
 
 const memoize = (fn, length) => {

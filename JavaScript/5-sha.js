@@ -2,7 +2,7 @@
 
 const crypto = require('node:crypto');
 
-const argKey = (x) => x.toString() + ':' + typeof x;
+const argKey = (x) => `${x.toString()}:${typeof x}`;
 
 const generateKey = (args) => {
   const key = args.map(argKey).join('|');
